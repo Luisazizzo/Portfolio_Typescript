@@ -18,7 +18,7 @@ export const portfolio: PortfolioData = {
   userInfo: {
     name: "LUISA ZIZZO",
     job: "FRONTEND DEVELOPER",
-    info: "Energica, con diversi anni si esperienza nell'offerta di servizi di qualità e rapporti con il publico, pongo l'attenzione ai particolari. La mia esperienza nel management mi conferisce una propensione all'abilità di multitasking e di supervisione. Adoro lavorate in team e la mia solarità mi permette di istaurare facilmente rapporti con i colleghi.",
+    info: "Energica, con diversi anni di esperienza nell'offerta di servizi di qualità e rapporti con il publico, pongo l'attenzione ai particolari. La mia esperienza nel management mi conferisce una propensione all'abilità di multitasking e di supervisione. Adoro lavorare in team e la mia solarità mi permette di instaurare facilmente rapporti con i colleghi.",
     image: "myPhoto/foto.jpg",
   },
   project: [
