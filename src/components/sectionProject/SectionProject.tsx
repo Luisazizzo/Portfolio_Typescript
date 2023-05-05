@@ -12,7 +12,10 @@ const SectionProject = (props: { project: ProjectData[] | undefined }) => {
       <div className={styles.content}>
         {project?.map((item, i: number) => (
           <div className={styles.card} key={i}>
-            <AnimationOnScroll animateIn="animate__fadeInDown">
+            <AnimationOnScroll
+              animateIn="animate__backInLeft"
+              animateOnce={true}
+            >
               <a
                 className={styles.link_img_desktop}
                 href={item.links[1].url}
@@ -27,7 +30,10 @@ const SectionProject = (props: { project: ProjectData[] | undefined }) => {
                 />
               </a>
             </AnimationOnScroll>
-            <AnimationOnScroll animateIn="animate__fadeInDown">
+            <AnimationOnScroll
+              animateIn="animate__backInRight"
+              animateOnce={true}
+            >
               <div className={styles.description}>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>

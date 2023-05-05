@@ -14,6 +14,7 @@ const SectionSkills = (props: { skills: SkillsData[] | undefined }) => {
             animateIn="animate__bounceInLeft"
             delay={i * 100}
             key={i}
+            animateOnce={true}
           >
             <p style={{ color: item.color, backgroundColor: item.bg }}>
               {item.title}

@@ -11,11 +11,7 @@ const SectionAbout = (props: { userInfo: UserInfoData | undefined }) => {
       <h2>CHI SONO</h2>
       <div className={styles.info}>
         <div className={styles.img}>
-          <AnimationOnScroll
-            animateIn="animate__backInLeft"
-            animatePreScroll={true}
-            initiallyVisible={true}
-          >
+          <AnimationOnScroll animateIn="animate__backInLeft" animateOnce={true}>
             {userInfo && (
               <Image
                 src={userInfo?.image}
@@ -26,11 +22,7 @@ const SectionAbout = (props: { userInfo: UserInfoData | undefined }) => {
             )}
           </AnimationOnScroll>
         </div>
-        <AnimationOnScroll
-          animateIn="animate__backInRight"
-          animatePreScroll={true}
-          initiallyVisible={true}
-        >
+        <AnimationOnScroll animateIn="animate__backInRight" animateOnce={true}>
           <div className={styles.paragrafo}>
             <p>{userInfo?.info}</p>
           </div>
