@@ -1,0 +1,40 @@
+.SectionAbout {
+  width: 100%;
+  padding: 70px 0;
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+    padding: 10px 60px;
+    .img {
+      img {
+        object-fit: cover;
+      }
+    }
+    .paragrafo {
+      font-size: 20px;
+      line-height: 35px;
+      max-width: 500px;
+    }
+  }
+}
+@media screen and (max-width: 950px) {
+  .SectionAbout {
+    padding: 55px 0;
+    .info {
+      gap: 20px;
+      flex-direction: column;
+      .img {
+        margin-bottom: 30px;
+      }
+      .paragrafo {
+        text-align: center;
+      }
+    }
+  }
+}

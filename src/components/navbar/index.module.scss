@@ -1,0 +1,48 @@
+.menu {
+  display: none;
+  z-index: 4;
+}
+.Navbar {
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  transition: all 0.2s;
+
+  a {
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: $black;
+    &:hover {
+      text-decoration: underline;
+      color: $secondary-color;
+    }
+  }
+  &.scrolled {
+    background-color: $white;
+    box-shadow: 0px 0px 4px #00000025;
+    padding: 16px 50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .menu {
+    display: block;
+    font-size: 30px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+  .Navbar {
+    display: none;
+  }
+}

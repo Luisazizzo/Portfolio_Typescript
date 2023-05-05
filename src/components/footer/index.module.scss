@@ -1,0 +1,54 @@
+.Footer {
+  padding: 55px 0;
+  width: 100%;
+  background-color: $primary-color;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .contatti {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      .icon {
+        font-size: 25px;
+      }
+      a {
+        text-decoration: none;
+        color: $black;
+        transition: all 0.2s;
+        &:hover {
+          color: $secondary-color;
+          text-decoration: underline;
+        }
+      }
+    }
+    .city {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 44px;
+      .icon {
+        font-size: 25px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .Footer {
+    .contatti {
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      .city {
+        margin-right: 0;
+      }
+    }
+  }
+}
