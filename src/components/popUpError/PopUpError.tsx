@@ -12,7 +12,7 @@ const PopUpError = (props: {
   };
 
   useEffect(() => {
-    setTimeout(closePopUp, 3000);
+    setTimeout(closePopUp, 5000);
   }, []);
 
   return (
@@ -21,7 +21,7 @@ const PopUpError = (props: {
         x
       </p>
       <h2>Errore Connessione al Database</h2>
-      <p>Caricati dati statici</p>
+      <p>Utilizzo dati statici</p>
     </div>
   );
 };
