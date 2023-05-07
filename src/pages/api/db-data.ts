@@ -7,6 +7,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<PortfolioData>
 ) {
+  const apiKey = process.env.MONGODB_PASS;
+  console.log("API key:", apiKey);
   const userInfo = await getDataFromDatabase("userInfo");
   const social = await getDataFromDatabase("social");
   const project = await getDataFromDatabase("project");

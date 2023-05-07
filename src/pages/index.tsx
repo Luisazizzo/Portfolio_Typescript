@@ -27,7 +27,6 @@ export default function Home() {
 
   const getDbData = async () => {
     const res = await fetch("/api/db-data");
-    console.log(res);
     if (res.status > 399) {
       localData();
       return;
