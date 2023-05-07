@@ -19,8 +19,8 @@
       gap: 30px;
       .link_img_desktop {
         .img_desktop {
-          width: 320px;
-          height: 160px;
+          width: 350px;
+          height: auto;
         }
       }
 
@@ -30,7 +30,7 @@
           display: none;
           .img_mobile {
             width: 150px;
-            height: 300px;
+            height: auto;
             margin: 20px auto;
           }
         }

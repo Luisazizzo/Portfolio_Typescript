@@ -24,8 +24,8 @@ const SectionProject = (props: { project: ProjectData[] | undefined }) => {
                 <Image
                   className={styles.img_desktop}
                   src={item.image_big}
-                  width={150}
-                  height={150}
+                  width={350}
+                  height={170}
                   alt="img"
                 />
               </a>

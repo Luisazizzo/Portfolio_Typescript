@@ -5,9 +5,20 @@ import { getDataFromDatabase } from "../../../utils/mongo";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<PortfolioData>
 ) {
-  const data = await getDataFromDatabase("userInfo");
-  console.log(data);
+  const userInfo = await getDataFromDatabase("userInfo");
+  const social = await getDataFromDatabase("social");
+  const project = await getDataFromDatabase("project");
+  const skills = await getDataFromDatabase("skills");
+  const works = await getDataFromDatabase("works");
+
+  const data: PortfolioData = {
+    social: social,
+    userInfo: userInfo[0],
+    project: project,
+    skills: skills,
+    works: works,
+  };
   res.status(200).json(data);
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.scss";
@@ -9,21 +10,42 @@ import SectionSkills from "@/components/sectionSkills";
 import SectionProject from "@/components/sectionProject";
 import SectionWork from "@/components/sectionWork";
 import Footer from "@/components/footer";
+import Loader from "@/components/loader";
+import PopUpError from "@/components/popUpError";
 import { useEffect, useState } from "react";
 import { PortfolioData } from "../../types/portfolio";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [popUp, setPopUp] = useState<boolean>(false);
+  const [loader, setLoader] = useState<boolean>(true);
   const [tendina, setTendina] = useState<boolean>(false);
   const [portfolioData, setPortfolioData] = useState<
     PortfolioData | undefined
   >();
 
+  const getDbData = async () => {
+    const res = await fetch("/api/db-data");
+    if (res.status > 399) {
+      localData();
+      return;
+    }
+    const data = await res.json();
+    setPortfolioData(data);
+    setLoader(false);
+  };
+
+  const localData = async () => {
+    setPopUp(true);
+    const res = await fetch("/api/static-data");
+    const data = await res.json();
+    setPortfolioData(data);
+    setLoader(false);
+  };
+
   useEffect(() => {
-    fetch("/api/static-data")
-      .then((res) => res.json())
-      .then((data) => setPortfolioData(data));
+    getDbData();
   }, []);
 
   return (
@@ -35,17 +57,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <TendinaMenu tendina={tendina} setTendina={setTendina} />
-        <Navbar setTendina={setTendina} />
-        <Hero
-          userInfo={portfolioData?.userInfo}
-          social={portfolioData?.social}
-        />
-        <SectionAbout userInfo={portfolioData?.userInfo} />
-        <SectionSkills skills={portfolioData?.skills} />
-        <SectionProject project={portfolioData?.project} />
-        <SectionWork works={portfolioData?.works} />
-        <Footer />
+        {loader ? (
+          <Loader />
+        ) : (
+          <>
+            {popUp && <PopUpError setPopUp={setPopUp} />}
+            <TendinaMenu tendina={tendina} setTendina={setTendina} />
+            <Navbar setTendina={setTendina} />
+            <Hero
+              userInfo={portfolioData?.userInfo}
+              social={portfolioData?.social}
+            />
+            <SectionAbout userInfo={portfolioData?.userInfo} />
+            <SectionSkills skills={portfolioData?.skills} />
+            <SectionProject project={portfolioData?.project} />
+            <SectionWork works={portfolioData?.works} />
+            <Footer />
+          </>
+        )}
       </main>
     </>
   );
