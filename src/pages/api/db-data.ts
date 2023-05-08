@@ -7,12 +7,14 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<PortfolioData>
 ) {
+  // chiamo le collections da mondgoDb
   const userInfo = await getDataFromDatabase("userInfo");
   const social = await getDataFromDatabase("social");
   const project = await getDataFromDatabase("project");
   const skills = await getDataFromDatabase("skills");
   const works = await getDataFromDatabase("works");
 
+  // creo l'oggetto della risposta della chiamata
   const data: PortfolioData = {
     social: social,
     userInfo: userInfo[0],
